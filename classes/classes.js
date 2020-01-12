@@ -3,15 +3,25 @@
 
 // declare a new class
 class Zoo {
-  constructor(animals = []) {
+  constructor(zooName, animals = []) {
+    this.zooName = zooName;
     this.animals = animals; // array
   }
 
   // give the zoo a method
   tourZoo() {
-    // loop through the animals array supplied to this class
-    for (let i = 0; i < this.animals.length; i++) {
-      console.log(this.animals[i].species);
+    // check to see that there are animals in the zoo
+    // if there is at least one, proceed
+    if (this.animals.length !== 0) {
+      console.log(`${this.zooName} contains the following animals:`);
+      // loop through the animals array supplied to this class
+      for (let i = 0; i < this.animals.length; i++) {
+        console.log(this.animals[i].species);
+      }
+    }
+    // if there are no animals in the zoo, tell us that
+    else {
+      console.log('The zoo is empty.');
     }
   }
 }
@@ -64,7 +74,7 @@ Shark.eatFood('small fish');
 
 // create a new instance of the Zoo class and supply it with an array as an arg
 // you could also create a new variable that is the array and set its contents to what we're passing in
-const PointDefiance = new Zoo([Wolf, Shark]);
+const PointDefiance = new Zoo('Point Defiance Zoo & Aquarium', [Wolf, Shark]);
 
 // call the tourZoo method on our zoo class
 // this will list all animals in the current instance of the zoo class
